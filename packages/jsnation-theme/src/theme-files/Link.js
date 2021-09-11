@@ -1,17 +1,17 @@
 import React from 'react'
-import { connect } from "frontity"
+import { connect , styled } from "frontity"
 
 function Link({ href, actions, children}) {
     return (
         <div>
-            <a href={href}
+            <Anchor href={href}
                 onClick= { e => {
                     e.preventDefault();
                     actions.router.set(href)
                 }}
             >
                 {children}
-            </a>
+            </Anchor>
         </div>
 
             
@@ -20,3 +20,9 @@ function Link({ href, actions, children}) {
 }
 
 export default connect(Link)
+
+const Anchor = styled.a`
+    color:steelblue;
+    text-decoration:none;
+
+`
