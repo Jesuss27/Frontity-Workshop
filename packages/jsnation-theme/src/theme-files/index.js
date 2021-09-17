@@ -1,5 +1,5 @@
 import React from "react";
-import { connect, Global, css, styled } from "frontity";
+import { connect, Global, css, styled, Head } from "frontity";
 import Link from "./Link"
 import List from "./List"
 import Post from "./Post"
@@ -22,16 +22,30 @@ const Root = ({state, actions, libraries}) => {
                 }
             `}
             />
-        <Header>
-        <HeaderContent>
-        <h1>Frontity Workshop</h1>
-        <p>Current URL: {state.router.link}</p>
-        <Menu>
-            <Link href="/">Home</Link>
-            <Link href="/page/2">More Posts</Link>
-            <Link href="/category/nature">Nature</Link>
-        </Menu>
-        </HeaderContent>
+            <Head>
+              <title>Frontity Workshop</title>
+              <meta name="description" content="blablablah"/>
+
+            </Head>
+        <Header isPostType={data.isPostType}>
+          <HeaderContent>
+            <h1>Frontity Workshop</h1>
+            <p>Current URL: {state.router.link}</p>
+            {state.theme.isMenuOpen ? (
+              <>
+              <button onClick={actions.theme.closeMenu}>Close</button>
+              <Menu>
+                <Link href="/">Home</Link>
+                <Link href="/page/2">More Posts</Link>
+                <Link href="/category/nature">Nature</Link>
+              </Menu>
+              </>
+             ) : (
+               <>
+                <button onClick={actions.theme.openMenu}>Open</button>
+               </>
+             )}
+          </HeaderContent>
         </Header>
         <Main>
             {data.isArchive && <List />}            
@@ -49,6 +63,7 @@ const Root = ({state, actions, libraries}) => {
     border-width:0 0 8px 0;
     border-style: solid;
     border-color: lightblue;
+    border-color: ${ props => props.isPostType ?  "lightseagreen" : "maroon"}
   `
 
   const HeaderContent = styled.div`
