@@ -3,6 +3,7 @@ import { connect, Global, css, styled, Head } from "frontity";
 import Link from "./Link"
 import List from "./List"
 import Post from "./Post"
+import Contact from "./Contact"
 
 const Root = ({state, actions, libraries}) => {
 
@@ -24,7 +25,6 @@ const Root = ({state, actions, libraries}) => {
             />
             <Head>
               <title>Frontity Workshop</title>
-              <meta name="description" content="blablablah"/>
 
             </Head>
         <Header isPostType={data.isPostType}>
@@ -36,7 +36,7 @@ const Root = ({state, actions, libraries}) => {
               <button onClick={actions.theme.closeMenu}>Close</button>
               <Menu>
                 <Link href="/">Home</Link>
-                <Link href="/page/2">More Posts</Link>
+                <Link href="/contact">Contact</Link>
                 <Link href="/category/nature">Nature</Link>
               </Menu>
               </>
@@ -49,7 +49,8 @@ const Root = ({state, actions, libraries}) => {
         </Header>
         <Main>
             {data.isArchive && <List />}            
-            {data.isPost && <Post />}            
+            {data.isPost && <Post />}  
+            {data.isPage && <Contact />}          
                        
         </Main>
       </>

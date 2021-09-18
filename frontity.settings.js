@@ -15,12 +15,13 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://test.frontity.org"
+          "url": "http://localhost:150/wordpress-network/wordpress/"
         }
       }
     },
     "@frontity/tiny-router",
     "@frontity/html2react",
+    "@aamodtgroup/frontity-contact-form-7",
     
   ]
 };
