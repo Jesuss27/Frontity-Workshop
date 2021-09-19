@@ -15,7 +15,10 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "http://localhost:150/wordpress-network/wordpress/"
+          "url": "http://localhost:150/wordpress-network/wordpress/",
+          "params":{
+            "per_page" : 3
+          }
         }
       }
     },

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect, Global, css, styled, Head } from "frontity";
-import Link from "./Link"
+import Link from "@frontity/components/link"
 import List from "./List"
 import Post from "./Post"
 import Contact from "./Contact"
@@ -35,9 +35,9 @@ const Root = ({state, actions, libraries}) => {
               <>
               <button onClick={actions.theme.closeMenu}>Close</button>
               <Menu>
-                <Link href="/">Home</Link>
-                <Link href="/contact">Contact</Link>
-                <Link href="/category/nature">Nature</Link>
+                <Link link="/">Home</Link>
+                <Link link="/contact">Contact</Link>
+                <Link link="/category/nature">Nature</Link>
               </Menu>
               </>
              ) : (

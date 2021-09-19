@@ -7,8 +7,10 @@ export default {
   },
   state: {
     theme: {
-      isMenuOpen : false 
-    }
+      isMenuOpen : false,
+      autoPrefetch: "hover"
+    },
+    
   },
   actions: {
     theme: {
@@ -18,6 +20,9 @@ export default {
       closeMenu: ({state}) => {
         state.theme.isMenuOpen = false;
       },
+      beforeSSR: async ({actions}) => {
+        await actions.source.fetch("/contact");
+      }
 
     }
   }
